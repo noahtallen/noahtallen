@@ -1,0 +1,37 @@
+footerHeight = 100px;
+viewWidth = 80%;
+sidePadding = 20px;
+
+#main  
+    background-color: backgroundColor
+    height: 100%;
+    float: right;
+    width: viewWidth;
+    margin: 0;
+    padding: 0;
+    z-index: 0;
+
+#container
+    padding: 0;
+    margin: 0;
+    overflow: auto;
+    height: 100%;
+    width: 100%;
+
+#pages
+    min-height: "calc(100% - %s)" % footerHeight;
+    border-top: 6px solid highlightColor;
+    padding-left: sidePadding;
+    padding-right: sidePadding;
+    padding-top: 10px;
+    box-sizing: border-box;
+
+#footer
+    height: footerHeight;
+    background-color: shade(backgroundColor, 70%)
+    width: 100%;
+    padding-left: sidePadding;
+    padding-right: sidePadding;
+    padding-top: 20px;
+    box-sizing: border-box;
+    color: white;
