@@ -1,3 +1,8 @@
+@font-face {
+  font-family: headers;
+  font-style: bold;
+  src: url("fonts/adam-cg-pro.otf");
+}
 #main {
   background-color: #fff;
   height: 100%;
@@ -31,6 +36,7 @@
   padding-top: 20px;
   box-sizing: border-box;
   color: #fff;
+  font-family: headers;
 }
 #header {
   background-color: #091221;
@@ -39,8 +45,47 @@
   float: left;
   width: 20%;
   height: 100%;
-  padding: 3em 0em;
   box-shadow: 2px 2px 3px rgba(0,0,0,0.4);
+  text-align: center;
+  min-width: 145px;
+}
+#header-container {
+  width: 100%;
+  height: 100%;
+  padding-top: 20px;
+  padding-right: 10px;
+  padding-left: 10px;
+  box-sizing: border-box;
+}
+#title {
+  padding-top: 10px;
+  color: #fff;
+  font-family: headers;
+  font-size: 40px;
+}
+#menu {
+  padding-top: 20px;
+  box-sizing: border-box;
+  align-items: center;
+}
+.header-button:before,
+.header-button:after {
+  content: "";
+  height: 1px;
+  background: linear-gradient(to right, rgba(0,0,0,0) 0%, #b82223 50%, rgba(0,0,0,0) 100%);
+  display: block;
+}
+.header-button {
+  color: #fff;
+  font-family: headers;
+  font-size: 20px;
+  line-height: 50px;
+  height: 50px;
+  width: 100%;
+}
+.header-button:hover {
+  background: #b82223;
+  cursor: pointer;
 }
 html,
 body {
