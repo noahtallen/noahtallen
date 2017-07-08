@@ -1,6 +1,6 @@
 footerHeight = 100px;
 viewWidth = 80%;
-sidePadding = 20px;
+paddingSize = 40px;
 
 #main  
     background-color: backgroundColor
@@ -21,18 +21,15 @@ sidePadding = 20px;
 #pages
     min-height: "calc(100% - %s)" % footerHeight;
     border-top: 6px solid highlightColor;
-    padding-left: sidePadding;
-    padding-right: sidePadding;
-    padding-top: 10px;
+    padding: paddingSize;
     box-sizing: border-box;
 
 #footer
     height: footerHeight;
-    background-color: shade(backgroundColor, 70%)
+    background-color: shade(backgroundColor, 60%)
     width: 100%;
-    padding-left: sidePadding;
-    padding-right: sidePadding;
-    padding-top: 20px;
+    padding: paddingSize;
     box-sizing: border-box;
     color: white;
     font-family: headers;
+    box-shadow: 0px -2px 3px 0px rgba(0,0,0,0.4);
