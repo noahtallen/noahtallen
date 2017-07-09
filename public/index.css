@@ -106,6 +106,9 @@
   height: 50px;
   width: 100%;
 }
+.header-button-active {
+  background-color: #b82223;
+}
 .header-button:hover {
   background: #b82223;
   cursor: pointer;

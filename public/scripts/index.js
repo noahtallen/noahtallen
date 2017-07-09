@@ -1,9 +1,6 @@
-// for each file in pages folder
-//   Create new, hidden div. 
-//   create button to the side to show div.
-//   fill the div with content generated via markdown
-//   repeat until all files have links and content
-// show the "about" div first.
+// The first file in this array will be the default shown. Please add all 
+// file names from the 'pages' directory into this array if you want them
+// shown on the firebase site.
 var files = ['about.md', 'experience.md', 'projects.md'];
 var pagesPath = "pages/"
 var lowBreakPoint = 550;
@@ -41,25 +38,11 @@ function openPages(files) {
         var name = file.split(".")[0];
         createHeaderButton(name);
         createPage(name, contents);
-    })
-
-    // $.ajax({
-    //     url: folderName,
-    //     async: false,
-    //     success: (data) => {
-    //         $(data).find("a").attr("href", function (i, path) {
-    //             if( path.match(/\.(md|txt)$/) ) {
-    //                 // Now, path equals the path without the folderName.
-    //                 var contents = readFile(folderName+path);
-
-                    
-    //                 createHeaderButton(name);
-
-    //                 createPage(name, contents);
-    //             } 
-    //         });
-    //     }
-    // });
+    });
+ 
+    var def = files[0].split(".")[0];  
+    var n = activateButton(def); // saves the closure then immediately calls it.
+    n('');
 }
 
 function readFile(path) {
@@ -74,17 +57,31 @@ function readFile(path) {
 
 function createHeaderButton(name) {
     var $buttonDiv = "<div id='"+name+"Button' class='header-button'>"+name+"</div>"
-    //$buttonDiv.click(activateButton(name+"Button"));
+    
     $('#menu').append($buttonDiv);
+    $("#"+name+"Button").click(activateButton(name));
 }
 
 function createPage(name, contents) {
-    var $newPage = $("div", {id: (name + "Page"), "class": "pages"})
-    $newPage.html(contents);
+    var $newPage = "<div id='"+name+"Page' class='pages'>"+mdToHtml(contents)+"</div>"
+    $("#container").prepend($newPage);
 }
 
-function activateButton(buttonName) {
-    alert(buttonName + " is activated");
+// this function takes in text formatted in .md and returns it as .html.
+function mdToHtml(contentsToConvert) {
+    var converter = new showdown.Converter(),
+        html      = converter.makeHtml(contentsToConvert);
+    
+    return html;
+}
+
+function activateButton(name) {
+    return function(e) {
+        $(".pages").css("display", "none");
+        $(".header-button").removeClass("header-button-active");
+        $("#" + name + "Page").css("display", "block");
+        $("#" + name + "Button").addClass("header-button-active");
+    }
 }
 
 function showBttns(e) {
