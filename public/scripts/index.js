@@ -1,7 +1,7 @@
 // The first file in this array will be the default shown. Please add all 
 // file names from the 'pages' directory into this array if you want them
 // shown on the firebase site.
-var files = ['about.md', 'experience.md', 'projects.md'];
+var files = ['test.md' /*about.md', 'experience.md', 'projects.md'*/];
 var pagesPath = "pages/"
 var lowBreakPoint = 550;
 
@@ -9,7 +9,7 @@ init();
 
 function init() {
     openPages(files);
-    
+
     var ham = document.getElementById("hamburger");
     $('#hamburger').click(showBttns);
 
@@ -65,6 +65,10 @@ function createHeaderButton(name) {
 function createPage(name, contents) {
     var $newPage = "<div id='"+name+"Page' class='pages'>"+mdToHtml(contents)+"</div>"
     $("#container").prepend($newPage);
+
+    // Get rid of the top and bottom margins so that they align with the page padding.
+    $("#"+name+"Page").first().css('margin-top', '0px');
+    $("#"+name+"Page").last().css('margin-bottom', '0px');
 }
 
 // this function takes in text formatted in .md and returns it as .html.

@@ -3,6 +3,7 @@
 @import 'body'
 @import 'header'
 @import 'hamburger'
+@import 'page'
 
 html, body 
     margin: 0px;
@@ -10,3 +11,11 @@ html, body
     height: 100%;
     font-family: general;
     overflow: hidden;
+
+::-moz-selection 
+    background: highlightColor;
+    color: backgroundColor;
+
+::selection
+    background: highlightColor;
+    color: backgroundColor;
