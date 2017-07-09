@@ -18,7 +18,7 @@ paddingSize = 40px;
     height: 100%;
     width: 100%;
 
-#pages
+.pages
     min-height: "calc(100% - %s)" % footerHeight;
     border-top: 6px solid highlightColor;
     padding: paddingSize;
@@ -33,3 +33,15 @@ paddingSize = 40px;
     color: white;
     font-family: headers;
     box-shadow: 0px -2px 3px 0px rgba(0,0,0,0.4);
+
+@media (max-width: midWidth)
+    #main
+        width: "calc(100% - %s)" % headerWidth;
+    .pages
+        padding: paddingSize - 20px;
+    #footer
+        padding: paddingSize - 20px;
+
+@media (max-width: lowWidth)
+    #main
+        width: 100%;
