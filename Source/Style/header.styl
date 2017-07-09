@@ -4,14 +4,15 @@
     z-index: 1;
     float: left;
     width: 20%;
+    min-width: headerWidth;
     height: 100%;
     box-shadow: 2px 2px 3px rgba(0,0,0,0.4);
-    text-align: center;
-    min-width: headerWidth;
+    text-align: center;   
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
 
 #title-container
     width: 100%;
-    //height: 100%;
     padding-top: 15px;
     padding-right: 15px;
     padding-left: 15px;
@@ -30,6 +31,7 @@
     align-items: center;
     background: midColor;
     width: 100%;
+
 
 /* --- BUTTON STYLE ---*/
 .header-button:before, .header-button:after

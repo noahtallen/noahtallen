@@ -37,9 +37,11 @@ paddingSize = 40px;
 
 @media (max-width: midWidth)
     #main
-        width: "calc(100% - %s)" % headerWidth;
+        width: "calc(100% - %s)" %headerWidth;
+
     .pages
         padding: paddingSize - 20px;
+
     #footer
         padding: paddingSize - 20px;
 
@@ -47,3 +49,4 @@ paddingSize = 40px;
     #main
         width: 100%;
         margin-top: headerHeight;
+        height: "calc(100% - %s)" %headerHeight;

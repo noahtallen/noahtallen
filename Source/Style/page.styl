@@ -1,6 +1,12 @@
 /* Specify the format for markdown */
 contentPadding = 20px;
 
+.pages
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+
 .pages h1, h2
     font-family: headers;
 
@@ -14,10 +20,11 @@ contentPadding = 20px;
     box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.4);
 
 .pages blockquote
-    padding: contentPadding;
+    padding: contentPadding + 10px;
+    padding-top: 0px;
+    padding-bottom: 0px;
     margin: 0;
     border-left: 5px solid highlightColor;
 
 .pages blockquote p
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin: 0px;

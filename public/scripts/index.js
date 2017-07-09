@@ -1,7 +1,7 @@
 // The first file in this array will be the default shown. Please add all 
 // file names from the 'pages' directory into this array if you want them
 // shown on the firebase site.
-var files = ['test.md' /*about.md', 'experience.md', 'projects.md'*/];
+var files = ['test.md', 'about.md', 'experience.md', 'projects.md'];
 var pagesPath = "pages/"
 var lowBreakPoint = 550;
 
@@ -11,7 +11,7 @@ function init() {
     openPages(files);
 
     var ham = document.getElementById("hamburger");
-    $('#hamburger').click(showBttns);
+    $('#hamburger').one('mousedown', showBttns);
 
     // This logic ensures that the menu and hamburger reset when 
     // crossing over the breakpoint. This solves the issue where 
@@ -20,8 +20,11 @@ function init() {
     $(window).resize(function() {
         if($(window).width() > lowBreakPoint) {
             if(ham.classList.contains("is-active")) {
-               ham.classList.remove("is-active"); }
+               closeMenu(ham) }
+            // show side menu
             $("#menu").css("display", "block");
+            // Remove click outside of menu function, fixing a but.
+            $(document).off('click', clickedOutsideMenu);
         }
         else {
             if(!ham.classList.contains("is-active")) {
@@ -67,8 +70,8 @@ function createPage(name, contents) {
     $("#container").prepend($newPage);
 
     // Get rid of the top and bottom margins so that they align with the page padding.
-    $("#"+name+"Page").first().css('margin-top', '0px');
-    $("#"+name+"Page").last().css('margin-bottom', '0px');
+    $("#"+name+"Page").children(":first").css('margin-top', '0px');
+    $("#"+name+"Page").children(":last").css('margin-bottom', '0px');
 }
 
 // this function takes in text formatted in .md and returns it as .html.
@@ -85,6 +88,11 @@ function activateButton(name) {
         $(".header-button").removeClass("header-button-active");
         $("#" + name + "Page").css("display", "block");
         $("#" + name + "Button").addClass("header-button-active");
+
+        var ham = document.getElementById("hamburger");
+        if(ham.classList.contains("is-active")) {
+            closeMenu(ham);
+        }
     }
 }
 
@@ -93,24 +101,22 @@ function showBttns(e) {
     e.preventDefault();
     e.stopPropagation();
 
-    // Close Menu
-    if(ham.classList.contains("is-active")) {
-        closeMenu(ham);
-    }
     // Open Menu
-    else {
+    if(!ham.classList.contains("is-active")) {
         ham.classList.add("is-active")
         $("#menu").css("display", "block");
 
         // Check for one click outside of the menu, and close it.
-        $(document).one('click', clickedOutsideMenu);
+        $(document).one('mousedown', clickedOutsideMenu);;
     }
+
 }
 
 function clickedOutsideMenu(e) {
     var el = e.target;
-    var ham = document.getElementById("hamburger");
-    if(!$.contains($('#menu'), el)) {
+    console.log($(el).attr('class'));
+    if(!$(el).hasClass('header-button')) {
+        var ham = document.getElementById("hamburger");
         closeMenu(ham);
     }
 }
@@ -118,4 +124,6 @@ function clickedOutsideMenu(e) {
 function closeMenu(ham) {
     $("#menu").css("display", "none");
     ham.classList.remove("is-active");
+    // Reattatch event listener.
+    $('#hamburger').one('mousedown', showBttns);
 }
