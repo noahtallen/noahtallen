@@ -124,6 +124,7 @@
     height: 70px;
     padding: 0;
     text-align: left;
+    overflow: visible;
   }
   #title-container {
     padding: 15px;
