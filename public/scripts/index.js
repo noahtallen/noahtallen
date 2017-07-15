@@ -1,15 +1,11 @@
-// The first file in this array will be the default shown. Please add all 
-// file names from the 'pages' directory into this array if you want them
-// shown on the firebase site.
-var files = ['test.md', 'about.md', 'experience.md', 'projects.md'];
 var pagesPath = "pages/"
 var lowBreakPoint = 550;
 
 init();
 
 function init() {
-    openPages(files);
-
+    //openPages(files);
+    initializePages();
     var ham = document.getElementById("hamburger");
     $('#hamburger').one('mousedown', showBttns);
 
@@ -23,7 +19,7 @@ function init() {
                closeMenu(ham) }
             // show side menu
             $("#menu").css("display", "block");
-            // Remove click outside of menu function, fixing a but.
+            // Remove click outside of menu function
             $(document).off('click', clickedOutsideMenu);
         }
         else {
@@ -33,53 +29,21 @@ function init() {
     });
 }
 
-function openPages(files) {
 
-    files.forEach(function(file) {
-        var contents = readFile(pagesPath + file);
-
-        var name = file.split(".")[0];
-        createHeaderButton(name);
-        createPage(name, contents);
-    });
- 
-    var def = files[0].split(".")[0];  
-    var n = activateButton(def); // saves the closure then immediately calls it.
-    n('');
-}
-
-function readFile(path) {
-    var fileContents;
-    $.ajax({
-        url: path,
-        async: false,
-        success: (data) => fileContents = data
+function initializePages() {
+    $('#container').children('.pages').each(function() {
+        var id = this.id;
+        var name = id.substring(0, id.length - 4);
+        console.log(name)
+        var $buttonDiv = "<div id='"+name+"Button' class='header-button'>"+name+"</div>"
+        $('#menu').append($buttonDiv);
+        $("#"+name+"Button").click(activateButton(name));
+        $("#"+name+"Page").children(":first").css('margin-top', '0px');
+        $("#"+name+"Page").children(":last").css('margin-bottom', '0px');
+        if(!(name === "about")) {
+            $("#" + name + "Page").css("display", "none");
+        }
     })
-    return fileContents;
-}
-
-function createHeaderButton(name) {
-    var $buttonDiv = "<div id='"+name+"Button' class='header-button'>"+name+"</div>"
-    
-    $('#menu').append($buttonDiv);
-    $("#"+name+"Button").click(activateButton(name));
-}
-
-function createPage(name, contents) {
-    var $newPage = "<div id='"+name+"Page' class='pages'>"+mdToHtml(contents)+"</div>"
-    $("#container").prepend($newPage);
-
-    // Get rid of the top and bottom margins so that they align with the page padding.
-    $("#"+name+"Page").children(":first").css('margin-top', '0px');
-    $("#"+name+"Page").children(":last").css('margin-bottom', '0px');
-}
-
-// this function takes in text formatted in .md and returns it as .html.
-function mdToHtml(contentsToConvert) {
-    var converter = new showdown.Converter(),
-        html      = converter.makeHtml(contentsToConvert);
-    
-    return html;
 }
 
 function activateButton(name) {
@@ -107,7 +71,7 @@ function showBttns(e) {
         $("#menu").css("display", "block");
 
         // Check for one click outside of the menu, and close it.
-        $(document).one('mousedown', clickedOutsideMenu);;
+        $(document).one('mousedown', clickedOutsideMenu);
     }
 
 }
