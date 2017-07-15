@@ -20,7 +20,7 @@ function init() {
             // show side menu
             $("#menu").css("display", "block");
             // Remove click outside of menu function
-            $(document).off('click', clickedOutsideMenu);
+            $(document).off('mousedown', clickedOutsideMenu);
         }
         else {
             if(!ham.classList.contains("is-active")) {
