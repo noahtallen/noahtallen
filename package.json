@@ -1,0 +1,26 @@
+{
+  "name": "ntomallen",
+  "version": "1.0.0",
+  "description": "A personal portfolio and site for Noah Allen.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ntomallen/ntomallen.git"
+  },
+  "author": "Noah Allen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ntomallen/ntomallen/issues"
+  },
+  "homepage": "https://github.com/ntomallen/ntomallen#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-data": "^1.2.1",
+    "gulp-showdown": "^0.1.0",
+    "gulp-stylus": "^2.6.0",
+    "gulp-util": "^3.0.8"
+  }
+}
