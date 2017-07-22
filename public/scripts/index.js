@@ -31,7 +31,7 @@ function init() {
 
 
 function initializePages() {
-    $('#container').children('.pages').each(function() {
+    $('#main').children('.pages').each(function() {
         var id = this.id;
         var name = id.substring(0, id.length - 4);
         console.log(name)
