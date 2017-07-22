@@ -84,8 +84,7 @@
   background: #091221;
   width: 100%;
 }
-.header-button:before,
-.header-button:after {
+.header-button-divider {
   content: "";
   height: 1px;
   background: linear-gradient(to right, rgba(0,0,0,0) 0%, #b82223 50%, rgba(0,0,0,0) 100%);
