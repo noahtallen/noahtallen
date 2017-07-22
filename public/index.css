@@ -54,7 +54,7 @@
 }
 #header {
   background-color: #091221;
-  position: fixed;
+  position: absolute;
   z-index: 1;
   float: left;
   width: 20%;
