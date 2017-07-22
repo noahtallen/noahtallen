@@ -1,9 +1,4 @@
 @font-face {
-  font-family: headers;
-  font-style: bold;
-  src: url("fonts/adam-cg-pro.otf");
-}
-@font-face {
   font-family: general;
   font-style: bold;
   src: url("fonts/Lora-Regular.ttf");
@@ -20,35 +15,29 @@
 .pages {
   min-height: calc(100% - 100px);
   border-top: 6px solid #b82223;
-  padding: 40px;
+  padding: 20px;
   box-sizing: border-box;
 }
 #footer {
   height: 100px;
   background-color: #666;
   width: 100%;
-  padding: 40px;
+  padding: 20px;
   box-sizing: border-box;
   color: #fff;
-  font-family: headers;
+  font-family: 'Alegreya Sans SC', sans-serif;
   box-shadow: 0px -2px 3px 0px rgba(0,0,0,0.4);
 }
-@media (max-width: 720px) {
+@media (max-width: 764px) {
   #main {
     width: calc(100% - 153px);
-  }
-  .pages {
-    padding: 20px;
-  }
-  #footer {
-    padding: 20px;
   }
 }
 @media (max-width: 550px) {
   #main {
     width: 100%;
-    margin-top: 70px;
-    height: calc(100% - 70px);
+    margin-top: 50px;
+    height: calc(100% - 50px);
   }
 }
 #header {
@@ -65,27 +54,23 @@
 }
 #title-container {
   width: 100%;
-  padding-top: 15px;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding: 0px 17px;
+  margin: 0px;
   box-sizing: border-box;
 }
 #title {
   color: #fff;
-  font-family: headers;
-  font-size: 40px;
-  line-height: 30px;
-  margin-top: -5px;
+  font-family: 'Alegreya Sans SC', sans-serif;
+  font-size: 45px;
+  line-height: 50px;
 }
 #menu {
-  padding-top: 20px;
   box-sizing: border-box;
   align-items: center;
   background: #091221;
   width: 100%;
 }
-.header-button:before,
-.header-button:after {
+.header-button-divider {
   content: "";
   height: 1px;
   background: linear-gradient(to right, rgba(0,0,0,0) 0%, #b82223 50%, rgba(0,0,0,0) 100%);
@@ -93,8 +78,8 @@
 }
 .header-button {
   color: #fff;
-  font-family: headers;
-  font-size: 20px;
+  font-family: 'Alegreya Sans SC', sans-serif;
+  font-size: 30px;
   text-align: center;
   line-height: 50px;
   height: 50px;
@@ -112,14 +97,10 @@
     position: fixed;
     width: 100%;
     min-width: 320px;
-    height: 70px;
+    height: 50px;
     padding: 0;
     text-align: left;
     overflow: visible;
-  }
-  #title-container {
-    padding: 15px;
-    padding-left: 18px;
   }
   #menu {
     display: none;
@@ -128,7 +109,7 @@
 #hamburger {
   display: none;
   float: right;
-  margin-top: 7px;
+  margin-top: 12px;
 }
 .hamburger {
   display: inline-block;
@@ -215,8 +196,12 @@
   hyphens: auto;
 }
 .pages h1,
-h2 {
-  font-family: headers;
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Alegreya Sans SC', sans-serif;
 }
 .pages a {
   color: #b82223;

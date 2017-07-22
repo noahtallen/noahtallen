@@ -6,6 +6,7 @@ init();
 function init() {
     //openPages(files);
     initializePages();
+    initializeButtons();
     var ham = document.getElementById("hamburger");
     $('#hamburger').one('mousedown', showBttns);
 
@@ -29,6 +30,12 @@ function init() {
     });
 }
 
+function initializeButtons() {
+    $("#menu").children('.header-button:not(:last-of-type)')
+              .after("<div class='header-button-divider'></div>");
+    
+    console.log( $("#menu").children('.header-button:not(:last-of-type)'))
+}
 
 function initializePages() {
     $('#main').children('.pages').each(function() {
