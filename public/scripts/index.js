@@ -1,6 +1,28 @@
 var pagesPath = "pages/"
 var lowBreakPoint = 550;
 
+var isTouchSupported = 'ontouchstart' in window;
+var startEvent = isTouchSupported ? 'touchstart' : 'mousedown';
+var moveEvent = isTouchSupported ? 'touchmove' : 'mousemove';
+var endEvent = isTouchSupported ? 'touchend' : 'mouseup';
+
+if (isTouchSupported) { // remove all :hover stylesheets
+    try { // prevent exception on browsers not supporting DOM styleSheets properly
+        for (var si in document.styleSheets) {
+            var styleSheet = document.styleSheets[si];
+            if (!styleSheet.rules) continue;
+
+            for (var ri = styleSheet.rules.length - 1; ri >= 0; ri--) {
+                if (!styleSheet.rules[ri].selectorText) continue;
+
+                if (styleSheet.rules[ri].selectorText.match(':hover')) {
+                    styleSheet.deleteRule(ri);
+                }
+            }
+        }
+    } catch (ex) {}
+}
+
 init();
 
 function init() {
@@ -8,7 +30,7 @@ function init() {
     initializePages();
     initializeButtons();
     var ham = document.getElementById("hamburger");
-    $('#hamburger').one('mousedown', showBttns);
+    $('#hamburger').one(endEvent, showBttns);
 
     // This logic ensures that the menu and hamburger reset when 
     // crossing over the breakpoint. This solves the issue where 
@@ -21,7 +43,7 @@ function init() {
             // show side menu
             $("#menu").css("display", "block");
             // Remove click outside of menu function
-            $(document).off('mousedown', clickedOutsideMenu);
+            $(document).off(endEvent, clickedOutsideMenu);
         }
         else {
             if(!ham.classList.contains("is-active")) {
@@ -33,8 +55,6 @@ function init() {
 function initializeButtons() {
     $("#menu").children('.header-button:not(:last-of-type)')
               .after("<div class='header-button-divider'></div>");
-    
-    console.log( $("#menu").children('.header-button:not(:last-of-type)'))
 }
 
 function initializePages() {
@@ -44,7 +64,7 @@ function initializePages() {
         console.log(name)
         var $buttonDiv = "<div id='"+name+"Button' class='header-button'>"+name+"</div>"
         $('#menu').append($buttonDiv);
-        $("#"+name+"Button").click(activateButton(name));
+        $("#"+name+"Button").on(endEvent, activateButton(name));
         $("#"+name+"Page").children(":first").css('margin-top', '0px');
         $("#"+name+"Page").children(":last").css('margin-bottom', '0px');
         if(!(name === "about")) {
@@ -78,7 +98,7 @@ function showBttns(e) {
         $("#menu").css("display", "block");
 
         // Check for one click outside of the menu, and close it.
-        $(document).one('mousedown', clickedOutsideMenu);
+        $(document).one(endEvent, clickedOutsideMenu);
     }
 
 }
@@ -96,5 +116,5 @@ function closeMenu(ham) {
     $("#menu").css("display", "none");
     ham.classList.remove("is-active");
     // Reattatch event listener.
-    $('#hamburger').one('mousedown', showBttns);
+    $('#hamburger').one(endEvent, showBttns);
 }
