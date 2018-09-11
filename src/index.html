@@ -10,13 +10,15 @@
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
   </head>
   <body>
-      <div id='intro'>
+      <span class='version'>v1</span>
+      <div id='intro' class='section'>
             <h1>Hello!</h1>
             <h3>I'm Noah Allen, a <b>software engineer</b> who learns quickly, programs skillfully, and loves building products that matter.</h3>
             <h3>After graduation, I would love to work for <input type="text" id="comp1" name="comp1" placeholder="your company here"/>, a company that helps people live better lives.</h3>
       </div>
-      <div id='about'>
-            <h3>Why should I work there? In fact, <input type="text" id="comp2" name="comp2" placeholder="your company here"/> wants to hire an engineer with great qualifications, who….</h3>
+      <div id='about' class='section'>
+            <h3>Why should I work there? In fact, <input class='company-name' type="text" id="comp2" name="comp2" placeholder="your company here"/> wants to hire an engineer with great qualifications,</h3>
+            <h2>who…</h2>
             <ul>
                 <li>Has worked over a year as a CTO, learning a lot about teamwork and prioritization.</li>
                 <li>Has been the lead developer for a complex, cross-platform geolocation app.</li>
@@ -26,8 +28,11 @@
                 <li>Enjoys playing the piano, reading books, and drinking copious amounts of coffee in their free time.</li>
             </ul>
       </div>
-      <div id='contact'>
+      <div id='contact' class='section'>
           <h3>It sounds like a great fit. If <input type="text" id="comp3" name="comp3" placeholder="your company here"/> needs a developer, I would love to get in touch!</h3>
+          <div id='contact-box'>
+              <p>Email: <b>noahtallen@gmail.com</b></p>
+          </div>
       </div>
   </body>
 </html>
