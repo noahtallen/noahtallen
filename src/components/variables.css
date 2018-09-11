@@ -1,5 +1,6 @@
 :root {
-    --primary50: #E3F2FD;
-    --primary100: #BBDEFB;
-    --primary200: #90CAF9;
+    --bgDark: #171c28;
+    --highlight: #007bff;
+    --textPrimary: #afafbf;
+    --textEmphasize: #e7e7e7;
 }

@@ -1,0 +1,15 @@
+@import "../variables.css";
+
+.header {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    display: flex;
+}
+
+.linkItem a {
+    display: flex;
+    flex: 1;
+    color: var(--highlight);
+    font-size: 1.5em;
+}
