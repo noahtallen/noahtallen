@@ -1,4 +1,6 @@
-.firebaserc
-firebase.json
 node_modules
 firebase-debug.log
+.DS_Store
+public
+.cache
+.firebase/hosting.cHVibGlj.cache
