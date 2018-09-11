@@ -59,6 +59,7 @@ h3 {
     font-family: 'Inconsolata', monospace;
     color: var(--textPrimary);
     font-weight: normal;
+    line-height: 40px;
 }
 p {
     font-family: 'Inconsolata', monospace;
@@ -68,6 +69,7 @@ p {
 li {
     font-family: 'Inconsolata', monospace;
     color: var(--textPrimary);
+    padding: 10px;
 }
 
 input {
@@ -158,5 +160,9 @@ li:hover {
     height: 20px;
     text-align: center;
     width: 50px;
+    text-decoration: none;
+}
+.version:hover {
+    background-color: var(--highlight);
 }
 
