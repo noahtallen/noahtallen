@@ -24,6 +24,11 @@
     src: url('inconsolata.ttf');
 }
 
+::selection {
+    color: var(--textEmphasize);
+    background: black;
+}
+
 :root {
     --bgDark: #171c28;
     --highlight: #007bff;
