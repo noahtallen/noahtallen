@@ -1,7 +1,20 @@
 const gulp = require('gulp')
 const inline = require('gulp-inline-source')
+const concat = require('gulp-concat')
+const sass = require('gulp-sass')
 
-gulp.task('compileCss', () => {
+gulp.task('sass', () => {
+  return gulp.src('./src/styles/**/*.scss')
+    .pipe(sass.sync({outputStyle: 'compressed'}).on('error', sass.logError))
+    .pipe(concat('styles.css'))
+    .pipe(gulp.dest('./src/styles/'))
+})
+
+gulp.task('sass:watch', () => {
+  gulp.watch('./src/styles/**/*.scss', ['sass']);
+})
+
+gulp.task('compileCss', ['sass'], () => {
   return gulp.src('src/index.html')
     .pipe(inline())
     .pipe(gulp.dest('./public'))
