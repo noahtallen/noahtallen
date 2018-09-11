@@ -1,0 +1,25 @@
+{
+  "name": "noah-awesome-portfolio",
+  "version": "1.0",
+  "description": "Noah's personal portfolio website",
+  "author": "Noah Allen",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ntomallen/noahtallen"
+  },
+  "scripts": {
+    "build": "gulp compile",
+    "deploy": "yarn build && firebase deploy --only hosting"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.10.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-inject": "^4.3.2",
+    "gulp-inline-source": "^3.2.0",
+    "gulp-minify": "^3.1.0"
+  },
+  "engines": {
+    "node": ">=0.12.0"
+  }
+}
