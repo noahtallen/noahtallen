@@ -36,6 +36,10 @@
     --textEmphasize: #e7e7e7;
 }
 
+button:focus {
+    outline: none;
+}
+
 body {
     background-color: var(--bgDark);
     width: 100%;
@@ -53,6 +57,7 @@ a {
     text-decoration: none;
 }
 h1 {
+    display: inline;
     font-family: 'Circular';
     color: var(--highlight);
     font-size: 3em;
@@ -172,3 +177,51 @@ li:hover {
     background-color: var(--highlight);
 }
 
+#main-page {
+    opacity: 1;
+    transition: opacity, 0.5s;
+    z-index: 10;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow: scroll;
+}
+
+.info-section {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    opacity: 0;
+    transition: opacity, 0.5s;
+    z-index: -10;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.close-subpage {
+    width: 50px;
+    height: 50px;
+    background-color: black;
+    border: none;
+    border-radius: 25px;
+    color: var(--textEmphasize);
+}
+
+.close-subpage:hover {
+    background-color: var(--highlight);
+}
+
+.subpage-header {
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    h1 {
+        margin-left: 20px;
+    }
+}

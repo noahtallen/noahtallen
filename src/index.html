@@ -6,35 +6,63 @@
     <meta name="description" content="I’m Noah Allen, a software engineer who learns quickly, programs skillfully, and loves building products that matter.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/styles.css" type="text/css" inline>
-    <script src='./scripts/script.js' inline></script>
     <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
   </head>
   <body>
-      <a href='https://github.com/ntomallen/noahtallen' target="_blank" class='version'>v1</a>
-      <div id='intro' class='section'>
+      <a href='https://github.com/ntomallen/noahtallen' target="_blank" class='version'>v1.1</a>
+      <div id='main-page'>
+        <div id='intro' class='section'>
             <h1>Hello!</h1>
             <h3>I'm Noah Allen, a <b>software engineer</b> who learns quickly, programs skillfully, and loves building products that matter.</h3>
             <h3>After graduation, I would love to work for <input type="text" id="comp1" name="comp1" placeholder="your company here" oninput='changeCompanyName(event)'/>, a company that helps people live better lives.</h3>
-      </div>
-      <div id='about' class='section'>
+        </div>
+        <div id='about' class='section'>
             <h3>Why should I work there? In fact, <input class='company-name' type="text" id="comp2" name="comp2" placeholder="your company here" oninput='changeCompanyName(event)'/> wants to hire an engineer with great qualifications,</h3>
             <h2>who…</h2>
-            <ul>
-                <li>Has worked over a year as a <b>CTO</b>, learning a lot about teamwork and prioritization.</li>
-                <li>Has been the <b>lead developer</b> for a complex, cross-platform geolocation app.</li>
-                <li>Has worked with many programming languages and technologies.</li>
-                <li>Will soon receive an in-depth <b>computer science degree</b> with good grades.</li>
-                <li>Served in leadership positions for several student groups, including the student government association.</li>
-                <li>Enjoys playing the piano, reading books, and drinking copious amounts of coffee in their free time.</li>
+            <ul id='info-items'>
+                <li class='info-item' data-target='zonder'>Has worked over a year as a <b>CTO</b>, learning a lot about teamwork and prioritization.</li>
+                <li class='info-item' data-target='zonder'>Has been the <b>lead developer</b> for a complex, cross-platform geolocation app.</li>
+                <li class='info-item' data-target='tech'>Has worked with many programming languages and technologies.</li>
+                <li class='info-item' data-target='school'>Will soon receive an in-depth <b>computer science degree</b> with good grades.</li>
+                <li class='info-item' data-target='leadership'>Served in leadership positions for several student groups, including the student government association.</li>
+                <li class='info-item' data-target='activities'>Enjoys playing the piano, reading books, and drinking copious amounts of coffee in their free time.</li>
             </ul>
+        </div>
+        <div id='contact' class='section'>
+            <h3>It sounds like a great fit. If <input type="text" id="comp3" name="comp3" placeholder="your company here" oninput='changeCompanyName(event)'/> needs a developer, I would love to get in touch!</h3>
+            <div id='contact-box'>
+                <p>Email: <a href='mailto:noahtallen@gmail.com'><b>noahtallen@gmail.com</b></a></p>
+            </div>
+        </div>
       </div>
-      <div id='contact' class='section'>
-          <h3>It sounds like a great fit. If <input type="text" id="comp3" name="comp3" placeholder="your company here" oninput='changeCompanyName(event)'/> needs a developer, I would love to get in touch!</h3>
-          <div id='contact-box'>
-              <p>Email: <a href='mailto:noahtallen@gmail.com'><b>noahtallen@gmail.com</b></a></p>
-          </div>
-      </div>
+        <div id='zonder' class='section info-section'>
+            <span class='subpage-header'><button class='close-subpage' onclick='closeSubpage(event)'>Close</button><h1>Zonder</h1></span>
+            <h3>I'm Noah Allen, a <b>software engineer</b> who learns quickly, programs skillfully, and loves building products that matter.</h3>
+            <h3>After graduation, I would love to work for <input type="text" id="comp1" name="comp1" placeholder="your company here" oninput='changeCompanyName(event)'/>, a company that helps people live better lives.</h3>
+        </div>
+        <div id='tech' class='section info-section'>
+            <span class='subpage-header'><button class='close-subpage' onclick='closeSubpage(event)'>Close</button><h1>Languages and Technologies</h1></span>
+            <h3>I'm Noah Allen, a <b>software engineer</b> who learns quickly, programs skillfully, and loves building products that matter.</h3>
+            <h3>After graduation, I would love to work for <input type="text" id="comp1" name="comp1" placeholder="your company here" oninput='changeCompanyName(event)'/>, a company that helps people live better lives.</h3>
+        </div>
+        <div id='school' class='section info-section'>
+            <span class='subpage-header'><button class='close-subpage' onclick='closeSubpage(event)'>Close</button><h1>School</h1></span>
+            <h3>I'm Noah Allen, a <b>software engineer</b> who learns quickly, programs skillfully, and loves building products that matter.</h3>
+            <h3>After graduation, I would love to work for <input type="text" id="comp1" name="comp1" placeholder="your company here" oninput='changeCompanyName(event)'/>, a company that helps people live better lives.</h3>
+        </div>
+        <div id='leadership' class='section info-section'>
+            <span class='subpage-header'><button class='close-subpage' onclick='closeSubpage(event)'>Close</button><h1>Leadership</h1></span>
+            <h3>I'm Noah Allen, a <b>software engineer</b> who learns quickly, programs skillfully, and loves building products that matter.</h3>
+            <h3>After graduation, I would love to work for <input type="text" id="comp1" name="comp1" placeholder="your company here" oninput='changeCompanyName(event)'/>, a company that helps people live better lives.</h3>
+        </div>
+        <div id='activities' class='section info-section'>
+            <span class='subpage-header'><button class='close-subpage' onclick='closeSubpage(event)'>Close</button><h1>Activities</h1></span>
+            <h3>I'm Noah Allen, a <b>software engineer</b> who learns quickly, programs skillfully, and loves building products that matter.</h3>
+            <h3>After graduation, I would love to work for <input type="text" id="comp1" name="comp1" placeholder="your company here" oninput='changeCompanyName(event)'/>, a company that helps people live better lives.</h3>
+        </div>
   </body>
+  <script src='./scripts/script.js' inline></script>
+  <script>(function () { init() })()</script>
 </html>
