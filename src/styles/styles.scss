@@ -190,7 +190,6 @@ li:hover {
 
 .info-section {
     margin-top: 100px;
-    margin-bottom: 100px;
     opacity: 0;
     transition: opacity, 0.5s;
     z-index: -10;
@@ -200,6 +199,27 @@ li:hover {
     left: 0;
     right: 0;
     bottom: 0;
+
+    @include for-phone-only {
+        margin-top: 20px;
+    }
+    ul {
+        list-style: circle;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        @include for-phone-only {
+            padding: 0;
+        }
+        li {
+            font-size: 20px;
+            line-height: 30px;
+            margin: 0;
+            padding: 5px;
+        }
+        li:hover {
+            background-color: transparent;
+        }
+    }
 }
 
 .close-subpage {
@@ -225,5 +245,8 @@ li:hover {
     align-items: center;
     h1 {
         margin-left: 20px;
+        @include for-phone-only {
+            font-size: 5vw;
+        }
     }
 }
