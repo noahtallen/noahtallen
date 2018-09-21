@@ -1,4 +1,7 @@
 function init () {
+    let urlParams = new URLSearchParams(window.location.search);
+    const initCompany = urlParams.get('company')
+    changeCompanyName({target:{value: initCompany}})
     var ul = document.getElementById("info-items");
     if (ul) {
         var lis = ul.getElementsByTagName("li");
