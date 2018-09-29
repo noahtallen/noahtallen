@@ -1,7 +1,7 @@
 function init () {
-    var urlParams = new URLSearchParams(window.location.search);
-    var initCompany = urlParams.get('company');
-    changeCompanyName({target:{value: initCompany}});
+    // var urlParams = new URLSearchParams(window.location.search);
+    // var initCompany = urlParams.get('company');
+    // changeCompanyName({target:{value: initCompany}});
     var ul = document.getElementById("info-items");
     if (ul) {
         var lis = ul.getElementsByTagName("li");
