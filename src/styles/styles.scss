@@ -262,12 +262,13 @@ li:hover {
 }
 
 .info-section {
-    margin-top: 100px;
     opacity: 0;
+    height: fit-content;
+    margin-top: auto;
+    margin-bottom: auto;
     transition: opacity, 0.5s;
     z-index: -10;
-    position: fixed;
-    overflow-y: scroll;
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
