@@ -172,7 +172,7 @@ li:hover {
     flex-direction: column;
     justify-content: space-between;
     @include for-phone-only {
-        margin-top: 0px;
+        margin-top: 15px;
         h1 {
             margin-top: 0px;
             margin-bottom: 0px;
@@ -236,7 +236,7 @@ li:hover {
 }
 .version {
     position: absolute;
-    top: 10px;
+    top: 15px;
     right: 15px;
     color: var(--textEmphasize);
     font-family: 'Inconsolata', monospace;
@@ -246,6 +246,9 @@ li:hover {
     text-align: center;
     width: 50px;
     text-decoration: none;
+    @include for-phone-only {
+        top: 25px;
+    }
 }
 .version:hover {
     background: var(--highlight);
@@ -333,6 +336,9 @@ li:hover {
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+    @include for-phone-only {
+        margin-top: 5px;
+    }
     h1 {
         margin-left: 20px;
         @include for-phone-only {
