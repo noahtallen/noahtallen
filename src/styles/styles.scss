@@ -225,6 +225,12 @@ li:hover {
         span:last-of-type {
             flex: 1;
         }
+        span::selection {
+            background: var(--highlight);
+        }
+        b::selection {
+            background: var(--highlight);
+        }
     }
 }
 .version {
@@ -241,7 +247,7 @@ li:hover {
     text-decoration: none;
 }
 .version:hover {
-    background-color: var(--highlight);
+    background: var(--highlight);
 }
 
 #main-page {
