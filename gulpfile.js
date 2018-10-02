@@ -25,7 +25,7 @@ gulp.task('copyImages', () => {
 })
 
 gulp.task('copyRootFiles', () => {
-    return gulp.src(['src/favicon.ico', 'src/styles/circular-std.woff', 'src/styles/inconsolata.ttf', 'src/robots.txt']).pipe(gulp.dest('public/'))
+    return gulp.src(['src/favicon.ico', 'src/styles/circular-std.woff', 'src/styles/inconsolata.ttf', 'src/robots.txt', 'src/noah_allen_software_engineer_resume.pdf']).pipe(gulp.dest('public/'))
 })
 
 gulp.task('compile', ['compileCss', 'copyImages', 'copyRootFiles'])
