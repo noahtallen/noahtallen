@@ -179,6 +179,17 @@ li:hover {
             font-size: 2.5em;
         }
     }
+    button {
+        display: inline;
+        font-family: 'Circular';
+        color: var(--highlight);
+        font-size: 3em;
+        background-color: transparent;
+        border: none;
+        text-align: left;
+        padding: 0;
+        margin: 0;
+    }
 }
 
 #contact {
@@ -345,4 +356,52 @@ li:hover {
             font-size: 5vw;
         }
     }
+}
+
+@mixin keyframes($name) {
+    @-webkit-keyframes #{$name} {
+        @content;
+    }
+    @-moz-keyframes #{$name} {
+        @content;
+    }
+    @keyframes #{$name} {
+        @content;
+    }
+}
+
+@mixin animation($name,
+                 $duration: 3s,
+                 $timing-function:ease,
+                 $delay:0s,
+                 $iteration-count: 1,
+                 $direction: normal,
+                 $fill-mode: none,
+                 $play-state: running) {
+  -webkit-animation: $name $duration $timing-function $delay $iteration-count $direction $fill-mode $play-state;
+  -moz-animation: $name $duration $timing-function $delay $iteration-count $direction $fill-mode $play-state;
+  animation: $name $duration $timing-function $delay $iteration-count $direction $fill-mode $play-state;
+}
+
+@mixin prefix-property($name, $value) {
+    -webkit-#{$name}: $value;
+       -moz-#{$name}: $value;
+         -o-#{$name}: $value;
+            #{$name}: $value;
+}
+
+@include keyframes( bounce ) {
+	0%, 20%, 50%, 80%, 100% {
+    @include prefix-property(transform, translateY(0));
+  }
+	40% {
+    @include prefix-property(transform, translateY(-30px));
+  }
+	60% {
+    @include prefix-property(transform, translateY(-15px));
+  }
+}
+
+.bouncey {
+    @include animation(bounce, $duration: 1.3s, $iteration-count: 1);
 }
