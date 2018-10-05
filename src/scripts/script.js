@@ -66,3 +66,8 @@ function closeSubpage (e) {
         }
     }
 }
+
+function doCoolStuff(event) {
+    document.body.style.backgroundColor = "white";
+    document.getElementById('main-page').className = 'rotater'
+}

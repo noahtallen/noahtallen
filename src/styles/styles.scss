@@ -270,6 +270,7 @@ li:hover {
 }
 
 #main-page {
+    background-color: var(--bgDark);
     opacity: 1;
     transition: opacity, 0.5s;
     z-index: 10;
@@ -407,6 +408,17 @@ li:hover {
   }
 }
 
+@include keyframes( rotate ) {
+	100% {
+    @include prefix-property(transform, rotateY(45deg));
+  }
+}
+
 .bouncey {
     @include animation(bounce, $duration: 1.3s, $iteration-count: 1);
+}
+
+.rotater {
+    @include animation(rotate, $duration: 1s, $iteration-count: 1, $fill-mode: forwards);
+    perspective: 100px;
 }
