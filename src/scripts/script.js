@@ -69,5 +69,10 @@ function closeSubpage (e) {
 
 function doCoolStuff(event) {
     document.body.style.backgroundColor = "white";
-    document.getElementById('main-page').className = 'rotater'
+    document.getElementById('main-page').className = 'outer-animation'
+    document.getElementById('inner').className = 'rotater shadowify'
+    const els = document.querySelectorAll('#inner div')
+    els.forEach(node => node.className ='inner-elements section' )
+    document.getElementById('contact-box').className = 'shadowify'
+
 }

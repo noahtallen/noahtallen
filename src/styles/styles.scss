@@ -270,7 +270,6 @@ li:hover {
 }
 
 #main-page {
-    background-color: var(--bgDark);
     opacity: 1;
     transition: opacity, 0.5s;
     z-index: 10;
@@ -396,6 +395,13 @@ li:hover {
             #{$name}: $value;
 }
 
+@mixin prefix-multi-property($name, $value, $value2, $value3) {
+    -webkit-#{$name}: $value $value2 $value3;
+       -moz-#{$name}: $value $value2 $value3;
+         -o-#{$name}: $value $value2 $value3;
+            #{$name}: $value $value2 $value3;
+}
+
 @include keyframes( bounce ) {
 	0%, 20%, 50%, 80%, 100% {
     @include prefix-property(transform, translateY(0));
@@ -410,7 +416,13 @@ li:hover {
 
 @include keyframes( rotate ) {
 	100% {
-    @include prefix-property(transform, rotateY(45deg));
+    @include prefix-multi-property(transform, rotateY(40deg), translateZ(-500px), translateX(400px));
+  }
+}
+
+@include keyframes( pull ) {
+	100% {
+    @include prefix-property(transform, translateZ(300px));
   }
 }
 
@@ -418,7 +430,28 @@ li:hover {
     @include animation(bounce, $duration: 1.3s, $iteration-count: 1);
 }
 
+.outer-animation {
+    perspective: 2000px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    align-items: center;
+}
+
 .rotater {
-    @include animation(rotate, $duration: 1s, $iteration-count: 1, $fill-mode: forwards);
-    perspective: 100px;
+    @include animation(rotate, $duration: 0.6s, $iteration-count: 1, $fill-mode: forwards);
+    background-color: var(--bgDark);
+    perspective: 2000px;
+}
+
+.inner-elements {
+    @include animation(pull, $duration: 1s, $iteration-count: 1, $fill-mode: forwards);
+    text-shadow: 0px 20px 10px rgba(0,0,0,0.7);
+}
+.inner-elements button {
+    text-shadow: 0px 20px 10px rgba(0,0,0,0.7);
+}
+.shadowify {
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
 }
