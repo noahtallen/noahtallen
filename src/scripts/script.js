@@ -1,8 +1,8 @@
-var fancyMode = false
+var fancyMode = false;
 
 function init () {
     // var urlParams = new URLSearchParams(window.location.search);
-    // var initCompany = urlParams.get('company');
+    // var initCompany = urlParams.get("company");
     // changeCompanyName({target:{value: initCompany}});
     var ul = document.getElementById("info-items");
     if (ul) {
@@ -15,10 +15,9 @@ function init () {
         }
     }
 
-    var body = document.getElementsByTagName('body')
-    console.log(body)
+    var body = document.getElementsByTagName("body")
     body[0].addEventListener("click", function (e) {
-        if (e.target.id === 'main-page') {
+        if (e.target.id === "main-page") {
            undoFancyStuff()
         }
     })
@@ -41,7 +40,7 @@ function showSubpage (event) {
     sub.style.zIndex = 10;
     setTimeout(function () {
         sub.style.opacity = 1;
-    }, 20)
+    }, 20);
 
     // Hide main page:
     var main = document.getElementById("main-page");
@@ -49,7 +48,7 @@ function showSubpage (event) {
     main.style.opacity = 0;
     setTimeout(function () {
         main.style.display = "none";
-    }, 500)
+    }, 500);
 }
 
 function closeSubpage (e) {
@@ -59,7 +58,7 @@ function closeSubpage (e) {
     main.style.zIndex = 10;
     setTimeout(function () {
         main.style.opacity = 1;
-    }, 20)
+    }, 20);
 
     // Hide subpage:
     var sub = e.target.parentNode.parentNode;
@@ -67,7 +66,7 @@ function closeSubpage (e) {
     sub.style.opacity = 0;
     setTimeout(function () {
         sub.style.display = "none";
-    }, 500)
+    }, 500);
 
     var sections = document.getElementsByClassName("info-section");
     if (sections) {
@@ -82,21 +81,21 @@ function doCoolStuff(event) {
         undoFancyStuff()
     } else {
         document.body.style.backgroundColor = "white";
-        document.getElementById('main-page').className = 'outer-animation'
-        document.getElementById('inner').className = 'rotater shadowify'
-        const els = document.querySelectorAll('#inner div')
-        els.forEach(node => node.className ='inner-elements section' )
-        document.getElementById('contact-box').className = 'shadowify'
-        fancyMode = true
+        document.getElementById("main-page").className = "outer-animation";
+        document.getElementById("inner").className = "rotater shadowify";
+        const els = document.querySelectorAll("#inner div");
+        els.forEach(node => node.className ="inner-elements section" );
+        document.getElementById("contact-box").className = "shadowify";
+        fancyMode = true;
     }
 }
 
 function undoFancyStuff() {
     document.body.style.backgroundColor = "#171c28";
-    document.getElementById('main-page').className = ''
-    document.getElementById('inner').className = ''
-    const els = document.querySelectorAll('#inner div')
-    els.forEach(node => node.className ='section' )
-    document.getElementById('contact-box').className = ''
-    fancyMode = false
+    document.getElementById("main-page").className = "";
+    document.getElementById("inner").className = "";
+    const els = document.querySelectorAll("#inner div");
+    els.forEach(node => node.className ="section" );
+    document.getElementById("contact-box").className = "";
+    fancyMode = false;
 }
