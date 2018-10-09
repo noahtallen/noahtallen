@@ -278,6 +278,10 @@ li:hover {
     top: 0;
     right: 0;
     bottom: 0;
+    display: flex;
+    flex-direction: column;
+    perspective: 2000px;
+    align-items: center;
 }
 
 .info-section {
@@ -416,14 +420,23 @@ li:hover {
 }
 
 @include keyframes( rotate ) {
+    0% {
+        @include prefix-multi-property(transform, rotateY(0deg), translateZ(0px), translateX(0px));
+    }
 	100% {
     @include prefix-multi-property(transform, rotateY(40deg), translateZ(-500px), translateX(400px));
   }
 }
 
+@include keyframes( unRotate ) {
+	100% {
+    @include prefix-multi-property(transform, rotateY(0deg), translateZ(0px), translateX(0px));
+  }
+}
+
 @include keyframes( pull ) {
 	100% {
-    @include prefix-property(transform, translateZ(300px));
+    @include prefix-property(transform, translateZ(50px));
   }
 }
 
@@ -432,22 +445,21 @@ li:hover {
 }
 
 .outer-animation {
-    perspective: 2000px;
     background-color: white;
-    display: flex;
-    flex-direction: column;
-    // justify-content: center;
-    align-items: center;
 }
 
 .rotater {
-    @include animation(rotate, $duration: 0.6s, $iteration-count: 1, $fill-mode: forwards);
+    @include animation(rotate, $duration: 1s, $iteration-count: 1, $fill-mode: forwards);
+}
+
+#inner {
     background-color: var(--bgDark);
     perspective: 2000px;
+    transform: rotate(0deg) translate(0);
 }
 
 .inner-elements {
-    @include animation(pull, $duration: 1s, $iteration-count: 1, $fill-mode: forwards);
+    @include animation(pull, $duration: 1.2s, $iteration-count: 1, $fill-mode: forwards);
     text-shadow: 0px 20px 10px rgba(0,0,0,0.7);
 }
 .inner-elements button {

@@ -1,3 +1,5 @@
+var fancyMode = false
+
 function init () {
     // var urlParams = new URLSearchParams(window.location.search);
     // var initCompany = urlParams.get('company');
@@ -12,6 +14,14 @@ function init () {
             })
         }
     }
+
+    var body = document.getElementsByTagName('body')
+    console.log(body)
+    body[0].addEventListener("click", function (e) {
+        if (e.target.id === 'main-page') {
+           undoFancyStuff()
+        }
+    })
 }
 
 function changeCompanyName (e) {
@@ -68,11 +78,25 @@ function closeSubpage (e) {
 }
 
 function doCoolStuff(event) {
-    document.body.style.backgroundColor = "white";
-    document.getElementById('main-page').className = 'outer-animation'
-    document.getElementById('inner').className = 'rotater shadowify'
-    const els = document.querySelectorAll('#inner div')
-    els.forEach(node => node.className ='inner-elements section' )
-    document.getElementById('contact-box').className = 'shadowify'
+    if (fancyMode) {
+        undoFancyStuff()
+    } else {
+        document.body.style.backgroundColor = "white";
+        document.getElementById('main-page').className = 'outer-animation'
+        document.getElementById('inner').className = 'rotater shadowify'
+        const els = document.querySelectorAll('#inner div')
+        els.forEach(node => node.className ='inner-elements section' )
+        document.getElementById('contact-box').className = 'shadowify'
+        fancyMode = true
+    }
+}
 
+function undoFancyStuff() {
+    document.body.style.backgroundColor = "#171c28";
+    document.getElementById('main-page').className = ''
+    document.getElementById('inner').className = ''
+    const els = document.querySelectorAll('#inner div')
+    els.forEach(node => node.className ='section' )
+    document.getElementById('contact-box').className = ''
+    fancyMode = false
 }
